@@ -15,8 +15,11 @@ export class BlogApiService {
   updatePosts(): void{
     this.http.get<Post[]>(this.#updateUrl).subscribe((res) => {
       this.#posts = res;
-      console.log(res);
     })
+  }
+
+  getPosts(): Post[]{
+    return this.#posts;
   }
 
 }
