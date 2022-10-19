@@ -37,4 +37,9 @@ export class BlogComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
+  dateFromTimestamp(timestamp: string): string{
+    let dateFormat = new Date(parseInt(timestamp));
+    return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
+  }
+
 }
