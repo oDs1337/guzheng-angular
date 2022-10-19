@@ -1,11 +1,18 @@
 <div class="post">
-  <div class="post_frame">
+  <div *ngFor="let item of posts" class="post_frame post_frame-margin">
     <div class="post_frame_youtube">
-      <iframe width="800" height="400" [src]="safeUrl(posts[0].youtubeUrl)" frameborder="0" allowfullscreen>
-
-      </iframe>
+      <iframe width="800" height="400" [src]="safeUrl(item.youtubeUrl)" frameborder="0" allowfullscreen></iframe>
     </div>
-    {{posts[0].author}}
+    <div class="post_frame_title">
+      <span>{{item.title}}</span>
+    </div>
+    <div class="post_frame_info post_frame-margin">
+      <span>Author: {{item.author}}</span>
+      <span>{{ dateFromTimestamp(item.creationDate) }}</span>
+    </div>
+    <div class="post_frame_content post_frame-margin">
+      <span>{{item.content}}</span>
+    </div>
   </div>
   <button (click)="fetchPosts()">update</button>
 </div>

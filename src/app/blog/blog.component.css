@@ -4,7 +4,31 @@
 
   border: 1px solid red;
 }
+.post_frame-margin{
+  margin-top: 15px;
+}
 .post_frame_youtube{
   width: 800px;
   height: 400px;
+}
+.post_frame_title{
+  width: 800px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+.post_frame_info{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.post_frame_content{
+  width: 800px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+
+  border: 1px solid red;
 }
