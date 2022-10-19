@@ -1,10 +1,11 @@
 <div class="post">
   <div class="post_frame">
     <div class="post_frame_youtube">
-      <iframe width="800" height="400" src="https://www.youtube.com/embed/zlFfkON-H0g" frameborder="0" allowfullscreen>
+      <iframe width="800" height="400" [src]="posts![0].youtubeUrl" frameborder="0" allowfullscreen>
 
       </iframe>
     </div>
+    {{posts[0].author}}
   </div>
   <button (click)="fetchPosts()">update</button>
 </div>

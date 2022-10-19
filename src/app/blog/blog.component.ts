@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../post';
 import { BlogApiService } from '../service/blog-api.service';
 
@@ -10,6 +11,7 @@ import { BlogApiService } from '../service/blog-api.service';
 export class BlogComponent implements OnInit {
 
   posts: Post[] = [];
+  postsSubscription?: Subscription;
 
   constructor(private api: BlogApiService) { }
 
@@ -18,9 +20,16 @@ export class BlogComponent implements OnInit {
     this.fetchPosts();
   }
 
+  ngOnDestroy(): void {
+    this.postsSubscription?.unsubscribe();
+  }
+
   fetchPosts(): void{
-    this.posts = this.api.getPosts();
-    console.log(this.posts[0].youtubeUrl);
+    this.postsSubscription = this.api.getPosts()
+      .subscribe((res) => {
+        this.posts = res;
+        console.log(this.posts);
+      })
   }
 
 }
