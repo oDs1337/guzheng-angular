@@ -1,7 +1,7 @@
 <div class="post">
   <div class="post_frame">
     <div class="post_frame_youtube">
-      <iframe width="800" height="400" [src]="posts![0].youtubeUrl" frameborder="0" allowfullscreen>
+      <iframe width="800" height="400" [src]="safeUrl(posts[0].youtubeUrl)" frameborder="0" allowfullscreen>
 
       </iframe>
     </div>

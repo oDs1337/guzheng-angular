@@ -2,6 +2,7 @@ import { Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../post';
 import { BlogApiService } from '../service/blog-api.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blog',
@@ -13,7 +14,7 @@ export class BlogComponent implements OnInit {
   posts: Post[] = [];
   postsSubscription?: Subscription;
 
-  constructor(private api: BlogApiService) { }
+  constructor(private api: BlogApiService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.api.updatePosts();
@@ -30,6 +31,10 @@ export class BlogComponent implements OnInit {
         this.posts = res;
         console.log(this.posts);
       })
+  }
+
+  safeUrl(url: string){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
 }
