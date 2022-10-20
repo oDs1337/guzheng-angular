@@ -17,7 +17,7 @@ export class BlogComponent implements OnInit {
   constructor(private api: BlogApiService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.api.updatePosts();
+    this.api.fetchPosts();
     this.fetchPosts();
   }
 

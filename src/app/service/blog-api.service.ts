@@ -13,7 +13,7 @@ export class BlogApiService {
 
   constructor(private http: HttpClient) { }
 
-  updatePosts(): void{
+  fetchPosts(): void{
     this.http.get<Post[]>(this.#updateUrl).subscribe((res) => {
       this.#posts.next(res);
     })
