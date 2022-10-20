@@ -1,3 +1,4 @@
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../post';
@@ -12,25 +13,22 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class BlogComponent implements OnInit {
 
   posts: Post[] = [];
-  postsSubscription?: Subscription;
 
-  constructor(private api: BlogApiService, private sanitizer: DomSanitizer) { }
+  constructor(private api: BlogApiService, private sanitizer: DomSanitizer, private store: Store<{posts: Post[]}>) { }
 
   ngOnInit(): void {
     this.api.fetchPosts();
-    this.fetchPosts();
+    this.fetchPostsStore();
   }
 
   ngOnDestroy(): void {
-    this.postsSubscription?.unsubscribe();
+
   }
 
-  fetchPosts(): void{
-    this.postsSubscription = this.api.getPosts()
-      .subscribe((res) => {
-        this.posts = res;
-        console.log(this.posts);
-      })
+  fetchPostsStore(): void{
+    this.store.select((state) => state.posts).subscribe((res) => {
+      this.posts = res;
+    })
   }
 
   safeUrl(url: string){

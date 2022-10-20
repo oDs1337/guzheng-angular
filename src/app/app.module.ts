@@ -1,3 +1,4 @@
+import { postReducer } from './state/post.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,9 +30,7 @@ import { reducers, metaReducers } from './reducers';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    }),
+    StoreModule.forRoot({ posts: postReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
