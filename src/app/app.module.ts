@@ -10,6 +10,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { BlogComponent } from './blog/blog.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers, metaReducers } from './reducers';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +29,13 @@ import { BlogComponent } from './blog/blog.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
