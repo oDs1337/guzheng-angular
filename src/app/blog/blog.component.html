@@ -13,7 +13,8 @@
     <div class="post_frame_content post_frame-margin">
       <span>{{item.content}}</span>
     </div>
+    <button (click)="editPost(item.id)">Edit</button>
+    <button (click)="removePost(item.id)">Remove</button>
   </div>
-  <button (click)="fetchPostsStore()">update</button>
 </div>
 
