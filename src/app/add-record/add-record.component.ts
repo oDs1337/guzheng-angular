@@ -1,4 +1,4 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,7 +14,7 @@ export class AddRecordComponent implements OnInit {
 
   ngOnInit(): void {
     this.newRecordForm = this.fb.group({
-      author: ['',[
+      author: ['', [
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(64),
@@ -48,6 +48,39 @@ export class AddRecordComponent implements OnInit {
         Validators.maxLength(256),
       ]]
     })
+
+  }
+
+  get author(){
+    return this.newRecordForm.get("author") as FormControl;
+  }
+
+  get title(){
+    return this.newRecordForm.get("title") as FormControl;
+  }
+
+  get content(){
+    return this.newRecordForm.get("content") as FormControl;
+  }
+
+  get creationDate(){
+    return this.newRecordForm.get("creationDate") as FormControl;
+  }
+
+  get imageUrlLarge(){
+    return this.newRecordForm.get("imageUrlLarge") as FormControl;
+  }
+
+  get imageUrlSmall(){
+    return this.newRecordForm.get("imageUrlSmall") as FormControl;
+  }
+
+  get youtubeUrl(){
+    return this.newRecordForm.get("youtubeUrl") as FormControl;
+  }
+
+
+  submitPressed(idk: any){
 
   }
 

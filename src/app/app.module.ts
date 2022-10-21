@@ -15,7 +15,10 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './reducers';
 import { AddRecordComponent } from './add-record/add-record.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,11 @@ import { AddRecordComponent } from './add-record/add-record.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSlideToggleModule,
     StoreModule.forRoot({ posts: postReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25
