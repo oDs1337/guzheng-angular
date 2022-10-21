@@ -14,6 +14,7 @@ import { BlogComponent } from './blog/blog.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './reducers';
+import { AddRecordComponent } from './add-record/add-record.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { reducers, metaReducers } from './reducers';
     AppComponent,
     NavigationBarComponent,
     BlogComponent,
+    AddRecordComponent,
   ],
   imports: [
     BrowserModule,
