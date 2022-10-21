@@ -40,4 +40,13 @@ export class BlogComponent implements OnInit {
     return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
   }
 
+  removePost(id: any){
+    this.api.removePost(id);
+    this.api.fetchPosts();
+  }
+
+  editPost(id: any){
+    console.log(id);
+  }
+
 }
