@@ -2,6 +2,7 @@ import { Post } from '../post';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-record',
@@ -12,12 +13,72 @@ export class EditRecordComponent implements OnInit {
 
   id: any;
   post?: Post;
+  editForm!: FormGroup
 
-  constructor(private route: ActivatedRoute, private store: Store<{ posts: Post[]}>) { }
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private store: Store<{ posts: Post[]}>) { }
 
   ngOnInit(): void {
     this.getUrlId();
     this.getPost();
+
+    this.editForm = this.fb.group({
+      author: [`${this.post?.author}`, [
+        Validators.required,
+        Validators.minLength(1),
+        Validators.maxLength(64),
+      ]],
+      title: [`${this.post?.title}`,[
+        Validators.required,
+        Validators.minLength(1),
+        Validators.maxLength(64),
+      ]],
+      content: [`${this.post?.content}`,[
+        Validators.required,
+        Validators.minLength(1),
+        Validators.maxLength(256),
+      ]],
+      imageUrlLarge: [`${this.post?.imageUrlLarge}`,[
+        Validators.required,
+        Validators.minLength(1),
+        Validators.maxLength(256),
+      ]],
+      imageUrlSmall: [`${this.post?.imageUrlSmall}`,[
+        Validators.maxLength(256),
+      ]],
+      youtubeUrl: [`${this.post?.youtubeUrl}`,[
+        Validators.required,
+        Validators.minLength(1),
+        Validators.maxLength(256),
+      ]]
+    })
+  }
+
+  get author(){
+    return this.editForm.get("author") as FormControl;
+  }
+
+  get title(){
+    return this.editForm.get("title") as FormControl;
+  }
+
+  get content(){
+    return this.editForm.get("content") as FormControl;
+  }
+
+  get imageUrlLarge(){
+    return this.editForm.get("imageUrlLarge") as FormControl;
+  }
+
+  get imageUrlSmall(){
+    return this.editForm.get("imageUrlSmall") as FormControl;
+  }
+
+  get youtubeUrl(){
+    return this.editForm.get("youtubeUrl") as FormControl;
+  }
+
+  submitPressed(formData: any): void{
+    console.log(formData);
   }
 
   getUrlId(): void{

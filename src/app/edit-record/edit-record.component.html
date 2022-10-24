@@ -1,2 +1,68 @@
-<p>edit-record works!</p>
-{{post?.title}}
+<div class="form">
+  <form [formGroup]="editForm" (ngSubmit)="submitPressed(editForm.value)">
+    <div class="form_author">
+      <mat-form-field appearance="outline">
+        <mat-label>Author:</mat-label>
+        <input matInput [formControl]="author">
+        <mat-error *ngIf="author?.invalid">
+          <span>Wrong data</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form_title">
+      <mat-form-field appearance="outline">
+        <mat-label>Title:</mat-label>
+        <input matInput [formControl]="title">
+        <mat-error *ngIf="title?.invalid">
+          <span>Wrong data</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form_content">
+      <mat-form-field appearance="outline">
+        <mat-label>Content:</mat-label>
+        <input matInput [formControl]="content">
+        <mat-error *ngIf="content?.invalid">
+          <span>Wrong data</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form_imageUrlLarge">
+      <mat-form-field appearance="outline">
+        <mat-label>Image url (large):</mat-label>
+        <input matInput [formControl]="imageUrlLarge">
+        <mat-error *ngIf="imageUrlLarge?.invalid">
+          <span>Wrong data</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form_imageUrlSmall">
+      <mat-form-field appearance="outline">
+        <mat-label>Image url (small, optional):</mat-label>
+        <input matInput [formControl]="imageUrlSmall">
+        <mat-error *ngIf="imageUrlSmall?.invalid">
+          <span>Wrong data</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form_youtubeUrl">
+      <mat-form-field appearance="outline">
+        <mat-label>YouTube url:</mat-label>
+        <input matInput [formControl]="youtubeUrl">
+        <mat-error *ngIf="youtubeUrl?.invalid">
+          <span>Wrong data</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form_submit">
+      <button mat-raised-button type="submit" [disabled]="editForm.invalid">Submit</button>
+    </div>
+
+  </form>
+</div>
