@@ -46,7 +46,7 @@ export class BlogComponent implements OnInit {
     this.api.fetchPosts();
   }
 
-  editPost(id: any){
+  editPost(id: string){
     this.router.navigateByUrl(`post/${id}/edit`);
   }
 
