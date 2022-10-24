@@ -21,9 +21,9 @@ export class BlogApiService {
     })
   }
 
-  // editPost(id: any, data): void{
-  //   this.http.put(`${this.#apiUrl}${}`)
-  // }
+  editPost(payload: Post): void{
+    this.http.put(`${this.#apiUrl}/${payload.id}`, payload).subscribe();
+  }
 
   removePost(id: any){
     this.http.delete(`${this.#apiUrl}${id}`).subscribe();
