@@ -33,7 +33,7 @@
     <div class="form_creationDate">
       <mat-form-field appearance="outline">
         <mat-label>Creation date:</mat-label>
-        <input matInput [formControl]="creationDate">
+        <input matInput [formControl]="creationDate" >
         <mat-error *ngIf="creationDate?.invalid">
           <span>Wrong data</span>
         </mat-error>

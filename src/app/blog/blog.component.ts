@@ -27,7 +27,7 @@ export class BlogComponent implements OnInit {
 
   fetchPostsStore(): void{
     this.store.select((state) => state.posts).subscribe((res) => {
-      this.posts = res;
+      this.posts = res.slice().reverse();
     })
   }
 

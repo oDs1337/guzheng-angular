@@ -1,3 +1,4 @@
+import { BlogApiService } from './../service/blog-api.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,7 +11,7 @@ export class AddRecordComponent implements OnInit {
 
   newRecordForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private api: BlogApiService) { }
 
   ngOnInit(): void {
     this.newRecordForm = this.fb.group({
@@ -22,14 +23,14 @@ export class AddRecordComponent implements OnInit {
       title: ['',[
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(16),
+        Validators.maxLength(64),
       ]],
       content: ['',[
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(256),
       ]],
-      creationDate: ['',[
+      creationDate: [`${this.generateTimestamp()}`,[
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(32),
@@ -79,9 +80,15 @@ export class AddRecordComponent implements OnInit {
     return this.newRecordForm.get("youtubeUrl") as FormControl;
   }
 
+  generateTimestamp(): string{
+    return `${Date.now()}`;
+  }
 
-  submitPressed(idk: any){
 
+  submitPressed(formData: any): void{
+    formData.upVotes = 0;
+    formData.downVotes = 0;
+    this.api.createPost(formData);
   }
 
 }
