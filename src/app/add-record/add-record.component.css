@@ -1,6 +1,8 @@
 .form{
   width: 800px;
   height: 100%;
+  background-color: black;
+  color: white;
 
   border: 1px solid red;
 }

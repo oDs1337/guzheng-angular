@@ -12,6 +12,7 @@
 
     <div class="form_title">
       <mat-form-field appearance="outline">
+        <mat-label>Title:</mat-label>
         <input matInput [formControl]="title">
         <mat-error *ngIf="title?.invalid">
           <span>Wrong data</span>
@@ -21,6 +22,7 @@
 
     <div class="form_content">
       <mat-form-field appearance="outline">
+        <mat-label>Content:</mat-label>
         <input matInput [formControl]="content">
         <mat-error *ngIf="content?.invalid">
           <span>Wrong data</span>
@@ -30,6 +32,7 @@
 
     <div class="form_creationDate">
       <mat-form-field appearance="outline">
+        <mat-label>Creation date:</mat-label>
         <input matInput [formControl]="creationDate">
         <mat-error *ngIf="creationDate?.invalid">
           <span>Wrong data</span>
@@ -39,6 +42,7 @@
 
     <div class="form_imageUrlLarge">
       <mat-form-field appearance="outline">
+        <mat-label>Image url (large):</mat-label>
         <input matInput [formControl]="imageUrlLarge">
         <mat-error *ngIf="imageUrlLarge?.invalid">
           <span>Wrong data</span>
@@ -48,6 +52,7 @@
 
     <div class="form_imageUrlSmall">
       <mat-form-field appearance="outline">
+        <mat-label>Image url (small, optional):</mat-label>
         <input matInput [formControl]="imageUrlSmall">
         <mat-error *ngIf="imageUrlSmall?.invalid">
           <span>Wrong data</span>
@@ -57,6 +62,7 @@
 
     <div class="form_youtubeUrl">
       <mat-form-field appearance="outline">
+        <mat-label>YouTube url:</mat-label>
         <input matInput [formControl]="youtubeUrl">
         <mat-error *ngIf="youtubeUrl?.invalid">
           <span>Wrong data</span>
@@ -65,7 +71,7 @@
     </div>
 
     <div class="form_submit">
-      <button mat-raised-button type="submit" [disabled]="newRecordForm.invalid"></button>
+      <button mat-raised-button type="submit" [disabled]="newRecordForm.invalid">Submit</button>
     </div>
 
   </form>
