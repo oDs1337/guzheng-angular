@@ -4,6 +4,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../post';
 import { BlogApiService } from '../service/blog-api.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -14,7 +15,7 @@ export class BlogComponent implements OnInit {
 
   posts: Post[] = [];
 
-  constructor(private api: BlogApiService, private sanitizer: DomSanitizer, private store: Store<{posts: Post[]}>) { }
+  constructor(private api: BlogApiService, private sanitizer: DomSanitizer, private store: Store<{posts: Post[]}>, private router: Router) { }
 
   ngOnInit(): void {
     this.api.fetchPosts();
@@ -45,8 +46,8 @@ export class BlogComponent implements OnInit {
     this.api.fetchPosts();
   }
 
-  editPost(id: any){
-    console.log(id);
+  editPost(id: string){
+    this.router.navigateByUrl(`post/${id}/edit`);
   }
 
 }
