@@ -85,7 +85,7 @@ export class AddRecordComponent implements OnInit {
   }
 
 
-  submitPressed(formData: any){
+  submitPressed(formData: any): void{
     formData.upVotes = 0;
     formData.downVotes = 0;
     this.api.createPost(formData);
