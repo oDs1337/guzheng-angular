@@ -2,6 +2,9 @@
   width: 800px;
   height: 100%;
 }
+.post_frame{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 .post_frame-margin{
   margin-top: 15px;
 }

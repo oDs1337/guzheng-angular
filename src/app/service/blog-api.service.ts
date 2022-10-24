@@ -26,7 +26,7 @@ export class BlogApiService {
   }
 
   removePost(id: any){
-    this.http.delete(`${this.#apiUrl}${id}`).subscribe();
+    this.http.delete(`${this.#apiUrl}/${id}`).subscribe();
   }
 
   createPost(payload: Post){
