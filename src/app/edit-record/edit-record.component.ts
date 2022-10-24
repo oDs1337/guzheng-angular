@@ -79,19 +79,11 @@ export class EditRecordComponent implements OnInit {
   }
 
   submitPressed(formData: Post): void{
-    const payload: Post = {
-      id: this.post?.id,
-      author: formData.author,
-      title: formData.title,
-      content: formData.title,
-      creationDate: this.post!.creationDate,
-      imageUrlLarge: formData.imageUrlLarge,
-      imageUrlSmall: formData.imageUrlSmall,
-      youtubeUrl: formData.youtubeUrl,
-      upVotes: this.post!.upVotes,
-      downVotes: this.post!.downVotes,
-    }
-    this.api.editPost(payload);
+    formData.id = this.post?.id;
+    formData.creationDate = this.post?.id;
+    formData.upVotes = this.post!.upVotes;
+    formData.downVotes = this.post!.downVotes;
+    this.api.editPost(formData);
   }
 
   getUrlId(): void{
