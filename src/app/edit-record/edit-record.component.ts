@@ -84,6 +84,7 @@ export class EditRecordComponent implements OnInit {
     formData.upVotes = this.post!.upVotes;
     formData.downVotes = this.post!.downVotes;
     this.api.editPost(formData);
+    this.api.fetchPosts();
   }
 
   getUrlId(): void{
