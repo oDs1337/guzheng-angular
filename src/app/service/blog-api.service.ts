@@ -26,27 +26,12 @@ export class BlogApiService {
   // }
 
   removePost(id: any){
-    this.http.delete(`${this.#apiUrl}${id}`).subscribe((res) => {
-      console.log(res);
-    });
+    this.http.delete(`${this.#apiUrl}${id}`).subscribe();
   }
 
   createPost(payload: Post){
-    // this.http.post<Post>(this.#apiUrl, {
-    //   author: payload.author,
-    //   title: payload.title,
-    //   content: payload.content,
-    //   creationDate: payload.creationDate,
-    //   imageUrlLarge: payload.imageUrlLarge,
-    //   youtubeUrl: payload.youtubeUrl,
-    //   upVotes: 0,
-    //   downVotes: 0,
-    // }).subscribe((res) => {
-    //   console.log(res);
-    // });
-    this.http.post<Post>(this.#apiUrl, payload).subscribe((res) => {
-      console.log(res);
-    })
+    this.http.post<Post>(this.#apiUrl, payload)
+      .subscribe();
   }
 
   getPosts(){
