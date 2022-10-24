@@ -1,3 +1,4 @@
+import { BlogApiService } from './../service/blog-api.service';
 import { Post } from '../post';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +16,7 @@ export class EditRecordComponent implements OnInit {
   post?: Post;
   editForm!: FormGroup
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private store: Store<{ posts: Post[]}>) { }
+  constructor(private api: BlogApiService ,private fb: FormBuilder, private route: ActivatedRoute, private store: Store<{ posts: Post[]}>) { }
 
   ngOnInit(): void {
     this.getUrlId();
@@ -77,8 +78,20 @@ export class EditRecordComponent implements OnInit {
     return this.editForm.get("youtubeUrl") as FormControl;
   }
 
-  submitPressed(formData: any): void{
-    console.log(formData);
+  submitPressed(formData: Post): void{
+    const payload: Post = {
+      id: this.post?.id,
+      author: formData.author,
+      title: formData.title,
+      content: formData.title,
+      creationDate: this.post!.creationDate,
+      imageUrlLarge: formData.imageUrlLarge,
+      imageUrlSmall: formData.imageUrlSmall,
+      youtubeUrl: formData.youtubeUrl,
+      upVotes: this.post!.upVotes,
+      downVotes: this.post!.downVotes,
+    }
+    this.api.editPost(payload);
   }
 
   getUrlId(): void{
