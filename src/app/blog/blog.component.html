@@ -4,13 +4,15 @@
       <iframe class="border-radius-top" width="500" height="300" [src]="safeUrl(item.youtubeUrl)" title="Guzheng Music | Sun Shines Over JingGang Mountain 古筝曲目《井冈山上太阳红》" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="post_frame_title frame-margin">
-      <span>AAAAAAAAAAAAAAAAAA</span>
+      <span>{{item.title}}</span>
     </div>
     <div class="post_frame_content frame-margin">
       <span>{{item.content}}</span>
     </div>
     <div class="post_frame_footer frame-margin">
-
+      <span>Author: {{item.author}}</span>
+      <span class="spacer"></span>
+      <span>Date: {{dateFromTimestamp(item.creationDate)}}</span>
     </div>
 
 </div>

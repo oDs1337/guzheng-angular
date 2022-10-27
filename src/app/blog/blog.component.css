@@ -27,7 +27,6 @@
   height: 100px;
   display: flex;
   align-items: center;
-  border: 1px solid red;
   font-size: 36px;
 }
 .post_frame_content{
@@ -36,11 +35,15 @@
 }
 .post_frame_footer{
   height: 36px;
-
-  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
 }
 .frame-margin{
   margin-top: 16px;
   margin-left: 16px;
   margin-right: 16px;
+}
+.spacer {
+  flex: 1 1 auto;
 }
