@@ -25,13 +25,14 @@
 }
 .post_frame_title{
   height: 100px;
-
+  display: flex;
+  align-items: center;
   border: 1px solid red;
+  font-size: 36px;
 }
 .post_frame_content{
   height: 100px;
-
-  border: 1px solid red;
+  font-size: 16px;
 }
 .post_frame_footer{
   height: 36px;

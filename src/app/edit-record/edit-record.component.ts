@@ -31,7 +31,7 @@ export class EditRecordComponent implements OnInit {
       title: [`${this.post?.title}`,[
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(64),
+        Validators.maxLength(18),
       ]],
       content: [`${this.post?.content}`,[
         Validators.required,
