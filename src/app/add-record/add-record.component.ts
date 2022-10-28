@@ -1,6 +1,8 @@
 import { BlogApiService } from './../service/blog-api.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../post';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-record',
@@ -10,8 +12,19 @@ import { Component, OnInit } from '@angular/core';
 export class AddRecordComponent implements OnInit {
 
   newRecordForm!: FormGroup;
+  previewPost: Post = {
+    author: "",
+    title: "",
+    content: "",
+    creationDate: this.generateTimestamp(),
+    imageUrlLarge: "",
+    imageUrlSmall: "",
+    youtubeUrl: "",
+    upVotes: 0,
+    downVotes: 0,
+  }
 
-  constructor(private fb: FormBuilder, private api: BlogApiService) { }
+  constructor(private sanitizer: DomSanitizer, private fb: FormBuilder, private api: BlogApiService) { }
 
   ngOnInit(): void {
     this.newRecordForm = this.fb.group({
@@ -84,6 +97,30 @@ export class AddRecordComponent implements OnInit {
     return `${Date.now()}`;
   }
 
+  authorChanged(author: string){
+    this.previewPost!.author = author;
+  }
+
+  titleChanged(title: string){
+    this.previewPost!.title = title;
+  }
+
+  contentChanged(content: string){
+    this.previewPost!.content = content;
+  }
+
+  youtubeChanged(youtubeUrl: string){
+    this.previewPost.youtubeUrl = youtubeUrl;
+  }
+
+  safeUrl(url: string){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  dateFromTimestamp(timestamp: string): string{
+    let dateFormat = new Date(parseInt(timestamp));
+    return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
+  }
 
   submitPressed(formData: any): void{
     formData.upVotes = 0;

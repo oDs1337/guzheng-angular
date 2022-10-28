@@ -1,7 +1,58 @@
 .form{
-  width: 800px;
-  height: 100%;
-  color: black;
-
-  border: 1px solid red;
+  width: 200px;
+  height: 600px;
 }
+.post_frame{
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  width: 500px;
+  height: 600px;
+  font-family: 'Comfortaa';font-size: 22px;
+  border-radius: 24px;
+  margin-left: 40px;
+}
+.post_frame-margin{
+  margin-top: 32px;
+}
+.border-radius-top{
+  border-radius: 24px 24px 0 0px;
+}
+.post_frame_youtube{
+  width: 500px;
+  height: 300px;
+}
+.post_frame_title{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+}
+.post_frame_content{
+  height: 100px;
+  font-size: 16px;
+}
+.post_frame_footer{
+  height: 36px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.frame-margin{
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.add_record{
+  width: 800px;
+  height: 600px;
+  display: flex;
+  margin-top: 32px;
+}
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+

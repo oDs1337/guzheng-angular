@@ -1,78 +1,98 @@
-<div class="form">
-  <form [formGroup]="newRecordForm" (ngSubmit)="submitPressed(newRecordForm.value)">
-    <div class="form_author">
-      <mat-form-field appearance="standard">
-        <mat-label>Author:</mat-label>
-        <input matInput [formControl]="author">
-        <mat-error *ngIf="author?.invalid">
-          <span>Wrong data</span>
-        </mat-error>
-      </mat-form-field>
-    </div>
+<div class="add_record">
+  <div class="form flex-center">
+    <form [formGroup]="newRecordForm" (ngSubmit)="submitPressed(newRecordForm.value)">
 
-    <div class="form_title">
-      <mat-form-field appearance="standard">
-        <mat-label>Title:</mat-label>
-        <input matInput [formControl]="title">
-        <mat-error *ngIf="title?.invalid">
-          <span>Wrong data</span>
-        </mat-error>
-      </mat-form-field>
-    </div>
+      <div class="form_youtubeUrl">
+        <mat-form-field appearance="outline">
+          <mat-label>YouTube url:</mat-label>
+          <input matInput [(ngModel)]="previewPost.youtubeUrl" [formControl]="youtubeUrl">
+          <mat-error *ngIf="youtubeUrl?.invalid">
+            <span>Wrong data</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-    <div class="form_content">
-      <mat-form-field appearance="standard">
-        <mat-label>Content:</mat-label>
-        <input matInput [formControl]="content">
-        <mat-error *ngIf="content?.invalid">
-          <span>Wrong data</span>
-        </mat-error>
-      </mat-form-field>
-    </div>
+      <div class="form_title">
+        <mat-form-field appearance="outline">
+          <mat-label>Title:</mat-label>
+          <input matInput [(ngModel)]="previewPost.title" [formControl]="title">
+          <mat-error *ngIf="title?.invalid">
+            <span>Wrong data</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-    <div class="form_creationDate">
-      <mat-form-field appearance="standard">
-        <mat-label>Creation date:</mat-label>
-        <input matInput [formControl]="creationDate" >
-        <mat-error *ngIf="creationDate?.invalid">
-          <span>Wrong data</span>
-        </mat-error>
-      </mat-form-field>
-    </div>
+      <div class="form_content">
+        <mat-form-field appearance="outline">
+          <mat-label>Content:</mat-label>
+          <input matInput [(ngModel)]="previewPost.content" [formControl]="content">
+          <mat-error *ngIf="content?.invalid">
+            <span>Wrong data</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-    <div class="form_imageUrlLarge">
-      <mat-form-field appearance="standard">
-        <mat-label>Image url (large):</mat-label>
-        <input matInput [formControl]="imageUrlLarge">
-        <mat-error *ngIf="imageUrlLarge?.invalid">
-          <span>Wrong data</span>
-        </mat-error>
-      </mat-form-field>
-    </div>
+      <div class="form_author">
+        <mat-form-field appearance="outline">
+          <mat-label>Author:</mat-label>
+          <input matInput [(ngModel)]="previewPost.author" [formControl]="author">
+          <mat-error *ngIf="author?.invalid">
+            <span>Wrong data</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-    <div class="form_imageUrlSmall">
-      <mat-form-field appearance="standard">
-        <mat-label>Image url (small, optional):</mat-label>
-        <input matInput [formControl]="imageUrlSmall">
-        <mat-error *ngIf="imageUrlSmall?.invalid">
-          <span>Wrong data</span>
-        </mat-error>
-      </mat-form-field>
-    </div>
+      <div class="form_creationDate">
+        <mat-form-field appearance="outline">
+          <mat-label>Creation date:</mat-label>
+          <input matInput readonly [formControl]="creationDate" >
+          <mat-error *ngIf="creationDate?.invalid">
+            <span>Wrong data</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-    <div class="form_youtubeUrl">
-      <mat-form-field appearance="standard">
-        <mat-label>YouTube url:</mat-label>
-        <input matInput [formControl]="youtubeUrl">
-        <mat-error *ngIf="youtubeUrl?.invalid">
-          <span>Wrong data</span>
-        </mat-error>
-      </mat-form-field>
-    </div>
+      <div class="form_imageUrlLarge">
+        <mat-form-field appearance="outline">
+          <mat-label>Image url (large):</mat-label>
+          <input matInput [formControl]="imageUrlLarge">
+          <mat-error *ngIf="imageUrlLarge?.invalid">
+            <span>Wrong data</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-    <div class="form_submit">
-      <button mat-raised-button type="submit" [disabled]="newRecordForm.invalid">Submit</button>
-    </div>
+      <div class="form_imageUrlSmall">
+        <mat-form-field appearance="outline">
+          <mat-label>Image url (small, optional):</mat-label>
+          <input matInput [formControl]="imageUrlSmall">
+          <mat-error *ngIf="imageUrlSmall?.invalid">
+            <span>Wrong data</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-  </form>
+      <div class="form_submit flex-center">
+        <button mat-raised-button type="submit" [disabled]="newRecordForm.invalid">Publish</button>
+      </div>
+
+    </form>
+  </div>
+  <div class="post_frame">
+    <div class="post_frame_youtube">
+      <iframe class="border-radius-top" width="500" height="300" [src]="safeUrl(previewPost.youtubeUrl)" title="Guzheng Music | Sun Shines Over JingGang Mountain 古筝曲目《井冈山上太阳红》" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="post_frame_title frame-margin">
+      <span>{{previewPost.title}}</span>
+    </div>
+    <div class="post_frame_content frame-margin">
+      <span>{{previewPost.content}}</span>
+    </div>
+    <div class="post_frame_footer frame-margin">
+      <span>Author: {{previewPost.author}}</span>
+      <span class="spacer"></span>
+      <span>Date: {{dateFromTimestamp(previewPost.creationDate)}}</span>
+    </div>
+  </div>
+
 </div>
