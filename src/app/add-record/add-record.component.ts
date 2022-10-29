@@ -1,7 +1,6 @@
 import { BlogApiService } from './../service/blog-api.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../post';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -12,17 +11,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AddRecordComponent implements OnInit {
 
   newRecordForm!: FormGroup;
-  previewPost: Post = {
-    author: "",
-    title: "",
-    content: "",
-    creationDate: this.generateTimestamp(),
-    imageUrlLarge: "",
-    imageUrlSmall: "",
-    youtubeUrl: "",
-    upVotes: 0,
-    downVotes: 0,
-  }
 
   constructor(private sanitizer: DomSanitizer, private fb: FormBuilder, private api: BlogApiService) { }
 
@@ -95,22 +83,6 @@ export class AddRecordComponent implements OnInit {
 
   generateTimestamp(): string{
     return `${Date.now()}`;
-  }
-
-  authorChanged(author: string){
-    this.previewPost!.author = author;
-  }
-
-  titleChanged(title: string){
-    this.previewPost!.title = title;
-  }
-
-  contentChanged(content: string){
-    this.previewPost!.content = content;
-  }
-
-  youtubeChanged(youtubeUrl: string){
-    this.previewPost.youtubeUrl = youtubeUrl;
   }
 
   createSafeUrl(url: string){

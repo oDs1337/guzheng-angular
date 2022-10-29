@@ -5,7 +5,7 @@
       <div class="form_youtubeUrl">
         <mat-form-field appearance="outline">
           <mat-label>YouTube url:</mat-label>
-          <input matInput [(ngModel)]="previewPost.youtubeUrl" [formControl]="youtubeUrl">
+          <input matInput [formControl]="youtubeUrl">
           <mat-error *ngIf="youtubeUrl?.invalid">
             <span>Wrong data</span>
           </mat-error>
@@ -15,7 +15,7 @@
       <div class="form_title">
         <mat-form-field appearance="outline">
           <mat-label>Title:</mat-label>
-          <input matInput [(ngModel)]="previewPost.title" [formControl]="title">
+          <input matInput [formControl]="title">
           <mat-error *ngIf="title?.invalid">
             <span>Wrong data</span>
           </mat-error>
@@ -25,7 +25,7 @@
       <div class="form_content">
         <mat-form-field appearance="outline">
           <mat-label>Content:</mat-label>
-          <input matInput [(ngModel)]="previewPost.content" [formControl]="content">
+          <input matInput [formControl]="content">
           <mat-error *ngIf="content?.invalid">
             <span>Wrong data</span>
           </mat-error>
@@ -35,7 +35,7 @@
       <div class="form_author">
         <mat-form-field appearance="outline">
           <mat-label>Author:</mat-label>
-          <input matInput [(ngModel)]="previewPost.author" [formControl]="author">
+          <input matInput [formControl]="author">
           <mat-error *ngIf="author?.invalid">
             <span>Wrong data</span>
           </mat-error>
