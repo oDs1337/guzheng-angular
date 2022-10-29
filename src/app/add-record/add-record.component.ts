@@ -90,7 +90,6 @@ export class AddRecordComponent implements OnInit {
   }
 
   dateFromTimestamp(timestamp: string): string{
-    // let dateFormat = !!timestamp ? new Date(parseInt(timestamp)) : new Date(this.creationDate.value);
     let dateFormat = new Date(parseInt(!!timestamp ? timestamp : this.creationDate.value));
     return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
   }
