@@ -13,7 +13,6 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { BlogComponent } from './blog/blog.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducers, metaReducers } from './reducers';
 import { AddRecordComponent } from './add-record/add-record.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
