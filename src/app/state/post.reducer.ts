@@ -1,6 +1,6 @@
 import { createReducer, on, State } from "@ngrx/store";
 import { Post } from "../post";
-import { fetch, create, remove, update } from "./post.action";
+import { fetch } from "./post.action";
 
 export const initialState: Post[] = [];
 

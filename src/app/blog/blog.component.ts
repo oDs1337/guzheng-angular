@@ -43,7 +43,6 @@ export class BlogComponent implements OnInit {
 
   removePost(id: any){
     this.api.removePost(id);
-    this.api.fetchPosts();
   }
 
   editPost(id: string){

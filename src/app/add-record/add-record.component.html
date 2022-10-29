@@ -80,18 +80,18 @@
   </div>
   <div class="post_frame">
     <div class="post_frame_youtube">
-      <iframe class="border-radius-top" width="500" height="300" [src]="safeUrl(previewPost.youtubeUrl)" title="Guzheng Music | Sun Shines Over JingGang Mountain 古筝曲目《井冈山上太阳红》" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe class="border-radius-top" width="500" height="300" [src]="createSafeUrl(youtubeUrl.valueChanges | async)" title="Guzheng Music | Sun Shines Over JingGang Mountain 古筝曲目《井冈山上太阳红》" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="post_frame_title frame-margin">
-      <span>{{previewPost.title}}</span>
+      <span>{{title.valueChanges | async}}</span>
     </div>
     <div class="post_frame_content frame-margin">
-      <span>{{previewPost.content}}</span>
+      <span>{{content.valueChanges | async}}</span>
     </div>
     <div class="post_frame_footer frame-margin">
-      <span>Author: {{previewPost.author}}</span>
+      <span>Author: {{author.valueChanges | async}}</span>
       <span class="spacer"></span>
-      <span>Date: {{dateFromTimestamp(previewPost.creationDate)}}</span>
+      <span>Date: {{dateFromTimestamp(creationDate.valueChanges | async)}}</span>
     </div>
   </div>
 
