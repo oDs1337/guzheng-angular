@@ -19,7 +19,7 @@ export class AddRecordComponent implements OnInit {
       author: ['', [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(64),
+        Validators.maxLength(30),
       ]],
       title: ['',[
         Validators.required,
