@@ -9,4 +9,11 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class UtilitiesModule { }
+export class UtilitiesModule {
+
+  dateFromTimestamp(timestamp: string, creationDateValue: any): string{
+    let dateFormat = new Date(parseInt(!!timestamp ? timestamp : creationDateValue));
+    return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
+  }
+
+ }
