@@ -11,6 +11,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AddRecordComponent implements OnInit {
 
   newRecordForm!: FormGroup;
+  //test
+
 
   constructor(private sanitizer: DomSanitizer, private fb: FormBuilder, private api: BlogApiService) { }
 
