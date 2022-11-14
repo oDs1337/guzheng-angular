@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { EditRecordComponent } from './edit-record/edit-record.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EditRecordComponent } from './edit-record/edit-record.component';
     BlogComponent,
     AddRecordComponent,
     EditRecordComponent,
+    SinglePostComponent,
   ],
   imports: [
     BrowserModule,
