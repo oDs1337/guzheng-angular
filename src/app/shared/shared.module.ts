@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PostBoxComponent } from './presenters/post-box/post-box.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PostBoxComponent
+  ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    PostBoxComponent
   ]
 })
 export class SharedModule { }
