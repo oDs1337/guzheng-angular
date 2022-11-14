@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { postReducer } from './state/post.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -47,6 +48,7 @@ import { SinglePostComponent } from './single-post/single-post.component';
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
+    SharedModule,
 
   ],
   providers: [],

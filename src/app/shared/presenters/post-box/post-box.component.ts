@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Post } from 'src/app/post';
+import { Component, Input, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-post-box',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostBoxComponent implements OnInit {
 
-  constructor() { }
+  item!: Post;
+
+  @Input() id = '';
+
+  constructor(private store: Store<{posts: Post[]}>) { }
 
   ngOnInit(): void {
+    this.fetchPostViaId();
+  }
+
+  fetchPostViaId(): void{
+    this.store.select((state) => state.posts).subscribe((res) => {
+      res.forEach(element => {
+        if(element.id === this.id){
+          this.item = element;
+        }
+      })
+    })
   }
 
 }
