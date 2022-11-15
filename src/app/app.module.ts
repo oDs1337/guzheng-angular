@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { postReducer } from './state/post.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { EditRecordComponent } from './edit-record/edit-record.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { EditRecordComponent } from './edit-record/edit-record.component';
     BlogComponent,
     AddRecordComponent,
     EditRecordComponent,
+    SinglePostComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { EditRecordComponent } from './edit-record/edit-record.component';
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
+    SharedModule,
 
   ],
   providers: [],

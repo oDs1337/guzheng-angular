@@ -49,4 +49,8 @@ export class BlogComponent implements OnInit {
     this.router.navigateByUrl(`post/${id}/edit`);
   }
 
+  readMore(id: string){
+    this.router.navigateByUrl(`post/${id}`);
+  }
+
 }
