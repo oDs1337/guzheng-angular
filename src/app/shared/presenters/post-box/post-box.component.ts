@@ -1,3 +1,4 @@
+import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { Post } from 'src/app/post';
 import { Component, Input, OnInit } from '@angular/core';
@@ -14,7 +15,7 @@ export class PostBoxComponent implements OnInit {
 
   @Input() id = '';
 
-  constructor(private store: Store<{posts: Post[]}>) { }
+  constructor(private sanitizer: DomSanitizer,private store: Store<{posts: Post[]}>) { }
 
   ngOnInit(): void {
     this.fetchPostViaId();
@@ -28,6 +29,15 @@ export class PostBoxComponent implements OnInit {
         }
       })
     })
+  }
+
+  safeUrl(url: string){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  dateFromTimestamp(timestamp: string): string{
+    let dateFormat = new Date(parseInt(timestamp));
+    return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
   }
 
 }
