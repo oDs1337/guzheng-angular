@@ -11,25 +11,23 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostBoxComponent implements OnInit {
 
-  item!: Post;
-
-  @Input() id = '';
+  @Input() item: Post = {
+    author: "",
+    title: "",
+    content: "",
+    creationDate: "",
+    imageUrlLarge: "",
+    youtubeUrl: "",
+    upVotes: 0,
+    downVotes: 0,
+  };
 
   constructor(private sanitizer: DomSanitizer,private store: Store<{posts: Post[]}>) { }
 
   ngOnInit(): void {
-    this.fetchPostViaId();
   }
 
-  fetchPostViaId(): void{
-    this.store.select((state) => state.posts).subscribe((res) => {
-      res.forEach(element => {
-        if(element.id === this.id){
-          this.item = element;
-        }
-      })
-    })
-  }
+
 
   safeUrl(url: string){
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
