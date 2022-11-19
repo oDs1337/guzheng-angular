@@ -11,15 +11,27 @@ import { Store } from '@ngrx/store';
 export class SinglePostComponent implements OnInit {
 
   idFromUrl: any;
+  item!: Post;
 
   constructor(private route: ActivatedRoute, private store: Store<{posts: Post[]}>) { }
 
   ngOnInit(): void {
     this.getUrlId();
+    this.fetchPostViaId()
   }
 
   getUrlId(): void{
     this.idFromUrl = this.route.snapshot.paramMap.get('id');
+  }
+
+  fetchPostViaId(): void{
+    this.store.select((state) => state.posts).subscribe((res) => {
+      res.forEach(element => {
+        if(element.id === this.idFromUrl){
+          this.item = element;
+        }
+      })
+    })
   }
 
 }
