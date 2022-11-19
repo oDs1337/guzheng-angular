@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { Post } from 'src/app/post';
@@ -22,7 +23,7 @@ export class PostBoxComponent implements OnInit {
     downVotes: 0,
   };
 
-  constructor(private sanitizer: DomSanitizer,private store: Store<{posts: Post[]}>) { }
+  constructor(private router: Router ,private sanitizer: DomSanitizer,private store: Store<{posts: Post[]}>) { }
 
   ngOnInit(): void {
   }
@@ -36,6 +37,10 @@ export class PostBoxComponent implements OnInit {
   dateFromTimestamp(timestamp: string): string{
     let dateFormat = new Date(parseInt(timestamp));
     return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
+  }
+
+  readMore(id: string){
+    this.router.navigateByUrl(`post/${id}`);
   }
 
 }

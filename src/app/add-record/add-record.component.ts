@@ -2,6 +2,7 @@ import { BlogApiService } from './../service/blog-api.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Post } from 'src/app/post';
 
 @Component({
   selector: 'app-add-record',
@@ -11,8 +12,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AddRecordComponent implements OnInit {
 
   newRecordForm!: FormGroup;
-  //test
-
 
   constructor(private sanitizer: DomSanitizer, private fb: FormBuilder, private api: BlogApiService) { }
 
