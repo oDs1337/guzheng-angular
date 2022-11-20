@@ -12,6 +12,16 @@ import { Post } from 'src/app/post';
 export class AddRecordComponent implements OnInit {
 
   newRecordForm!: FormGroup;
+  item: Post = {
+    author: ``,
+    title: ``,
+    content: ``,
+    creationDate: ``,
+    imageUrlLarge: ``,
+    youtubeUrl: ``,
+    upVotes: 0,
+    downVotes: 0,
+  }
 
   constructor(private sanitizer: DomSanitizer, private fb: FormBuilder, private api: BlogApiService) { }
 
@@ -55,30 +65,37 @@ export class AddRecordComponent implements OnInit {
   }
 
   get author(){
+    this.item.author = `${this.newRecordForm.get("author")?.value}`
     return this.newRecordForm.get("author") as FormControl;
   }
 
   get title(){
+    this.item.title = `${this.newRecordForm.get("title")?.value}`
     return this.newRecordForm.get("title") as FormControl;
   }
 
   get content(){
+    this.item.content = `${this.newRecordForm.get("content")?.value}`
     return this.newRecordForm.get("content") as FormControl;
   }
 
   get creationDate(){
+    this.item.creationDate = `${this.newRecordForm.get("creationDate")?.value}`
     return this.newRecordForm.get("creationDate") as FormControl;
   }
 
   get imageUrlLarge(){
+    this.item.imageUrlLarge = `${this.newRecordForm.get("imageUrlLarge")?.value}`
     return this.newRecordForm.get("imageUrlLarge") as FormControl;
   }
 
   get imageUrlSmall(){
+    this.item.imageUrlSmall = `${this.newRecordForm.get("imageUrlSmall")?.value}`
     return this.newRecordForm.get("imageUrlSmall") as FormControl;
   }
 
   get youtubeUrl(){
+    this.item.youtubeUrl = `${this.newRecordForm.get("youtubeUrl")?.value}`
     return this.newRecordForm.get("youtubeUrl") as FormControl;
   }
 
