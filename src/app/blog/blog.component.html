@@ -1,5 +1,10 @@
 <div class="post">
   <div *ngFor="let item of posts" class="post_frame post_frame-margin">
-    <app-post-box [item]='item'></app-post-box>
+    <app-post-box
+    [item]='item'
+    [editButtonHidden]="true"
+    [removeButtonHidden]="true"
+    [readmoreButtonHidden]="false">
+  </app-post-box>
 </div>
 

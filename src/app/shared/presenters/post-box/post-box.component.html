@@ -8,12 +8,16 @@
     </div>
     <div class="post_frame_content frame-margin">
       <span>{{item.content}}</span>
-      <button (click)="readMore(item.id)">read more</button>
+      <button [hidden]="readmoreButtonHidden" (click)="readMore(item.id)">read more</button>
     </div>
     <div class="post_frame_footer frame-margin">
       <span>Author: {{item.author}}</span>
-      <span class="spacer"></span>
       <span>Date: {{dateFromTimestamp(item.creationDate)}}</span>
     </div>
+  <div class="post_optionalButtons">
+    <button [hidden]="editButtonHidden">Edit</button>
+    <button [hidden]="removeButtonHidden">Remove</button>
+  </div>
 </div>
+
 

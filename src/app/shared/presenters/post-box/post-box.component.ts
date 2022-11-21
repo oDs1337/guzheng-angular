@@ -23,6 +23,11 @@ export class PostBoxComponent implements OnInit {
     downVotes: 0,
   };
 
+  @Input() editButtonHidden: boolean = true;
+  @Input() removeButtonHidden: boolean = true;
+  @Input() readmoreButtonHidden: boolean = true;
+
+
   constructor(private router: Router ,private sanitizer: DomSanitizer,private store: Store<{posts: Post[]}>) { }
 
   ngOnInit(): void {
