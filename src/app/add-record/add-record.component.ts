@@ -121,8 +121,8 @@ export class AddRecordComponent implements OnInit {
     formData.upVotes = 0;
     formData.downVotes = 0;
     this.api.createPost(formData);
-    alert(`Post of title: ${this.title.value} has been added successfully!`);
     this.routeToBlog();
+    alert(`Post of title: ${this.title.value} has been added successfully!`);
   }
 
 }

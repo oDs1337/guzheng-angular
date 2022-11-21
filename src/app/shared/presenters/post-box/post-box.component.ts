@@ -40,8 +40,8 @@ export class PostBoxComponent implements OnInit {
 
   removePressed(): void{
     this.api.removePost(this.item.id);
-    alert(`Post of title: ${this.item.title} has been removed successfully!`);
     this.routeToBlog();
+    alert(`Post of title: ${this.item.title} has been removed successfully!`);
   }
 
   routeToBlog(): void{

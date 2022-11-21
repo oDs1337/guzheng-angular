@@ -2,7 +2,7 @@ import { BlogApiService } from './../service/blog-api.service';
 import { Post } from '../post';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } from '@angular/forms';
 
 @Component({
@@ -13,10 +13,19 @@ import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } fro
 export class EditRecordComponent implements OnInit {
 
   id: any;
-  post?: Post;
-  editForm!: FormGroup
+  editForm!: FormGroup;
+  post: Post = {
+    author: ``,
+    title: ``,
+    content: ``,
+    creationDate: ``,
+    imageUrlLarge: ``,
+    youtubeUrl: ``,
+    upVotes: 0,
+    downVotes: 0,
+  }
 
-  constructor(private api: BlogApiService ,private fb: FormBuilder, private route: ActivatedRoute, private store: Store<{ posts: Post[]}>) { }
+  constructor(private router: Router,private api: BlogApiService ,private fb: FormBuilder, private route: ActivatedRoute, private store: Store<{ posts: Post[]}>) { }
 
   ngOnInit(): void {
     this.getUrlId();
@@ -78,6 +87,10 @@ export class EditRecordComponent implements OnInit {
     return this.editForm.get("youtubeUrl") as FormControl;
   }
 
+  routeToBlog(): void{
+    this.router.navigateByUrl('/blog');
+  }
+
   submitPressed(formData: Post): void{
     formData.id = this.post?.id;
     formData.creationDate = this.post?.id;
@@ -85,6 +98,8 @@ export class EditRecordComponent implements OnInit {
     formData.downVotes = this.post!.downVotes;
     this.api.editPost(formData);
     this.api.fetchPosts();
+    this.routeToBlog();
+    alert(`Post of title: ${this.post.title} has been modified successfully!`);
   }
 
   getUrlId(): void{
