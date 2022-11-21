@@ -15,8 +15,8 @@
       <span>Date: {{dateFromTimestamp(item.creationDate)}}</span>
     </div>
   <div class="post_optionalButtons">
-    <button [hidden]="editButtonHidden">Edit</button>
-    <button [hidden]="removeButtonHidden">Remove</button>
+    <button [hidden]="editButtonHidden" (click)="editPressed()">Edit</button>
+    <button [hidden]="removeButtonHidden" (click)="removePressed()">Remove</button>
   </div>
 </div>
 

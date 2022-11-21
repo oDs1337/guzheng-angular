@@ -1,3 +1,4 @@
+import { BlogApiService } from './../../../service/blog-api.service';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
@@ -28,12 +29,24 @@ export class PostBoxComponent implements OnInit {
   @Input() readmoreButtonHidden: boolean = true;
 
 
-  constructor(private router: Router ,private sanitizer: DomSanitizer,private store: Store<{posts: Post[]}>) { }
+  constructor(private api: BlogApiService,private router: Router ,private sanitizer: DomSanitizer,private store: Store<{posts: Post[]}>) { }
 
   ngOnInit(): void {
   }
 
+  editPressed(): void{
+    this.router.navigateByUrl(`post/${this.item.id}/edit`);
+  }
 
+  removePressed(): void{
+    this.api.removePost(this.item.id);
+    alert(`Post of title: ${this.item.title} has been removed successfully!`);
+    this.routeToBlog();
+  }
+
+  routeToBlog(): void{
+    this.router.navigateByUrl('/blog');
+  }
 
   safeUrl(url: string){
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);

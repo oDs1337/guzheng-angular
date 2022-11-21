@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BlogApiService } from './../service/blog-api.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -23,7 +24,7 @@ export class AddRecordComponent implements OnInit {
     downVotes: 0,
   }
 
-  constructor(private sanitizer: DomSanitizer, private fb: FormBuilder, private api: BlogApiService) { }
+  constructor(private router: Router ,private sanitizer: DomSanitizer, private fb: FormBuilder, private api: BlogApiService) { }
 
   ngOnInit(): void {
     this.newRecordForm = this.fb.group({
@@ -112,10 +113,16 @@ export class AddRecordComponent implements OnInit {
     return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
   }
 
+  routeToBlog(): void{
+    this.router.navigateByUrl('/blog');
+  }
+
   submitPressed(formData: any): void{
     formData.upVotes = 0;
     formData.downVotes = 0;
     this.api.createPost(formData);
+    alert(`Post of title: ${this.title.value} has been added successfully!`);
+    this.routeToBlog();
   }
 
 }
