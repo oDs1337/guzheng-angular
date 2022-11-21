@@ -41,14 +41,6 @@ export class BlogComponent implements OnInit {
     return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
   }
 
-  removePost(id: any){
-    this.api.removePost(id);
-  }
-
-  editPost(id: string){
-    this.router.navigateByUrl(`post/${id}/edit`);
-  }
-
   readMore(id: string){
     this.router.navigateByUrl(`post/${id}`);
   }
