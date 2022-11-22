@@ -102,7 +102,7 @@ export class EditRecordComponent implements OnInit {
 
   submitPressed(formData: Post): void{
     formData.id = this.post?.id;
-    formData.creationDate = this.post?.id;
+    formData.creationDate = this.post?.creationDate;
     formData.upVotes = this.post!.upVotes;
     formData.downVotes = this.post!.downVotes;
     this.api.editPost(formData);
