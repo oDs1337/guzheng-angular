@@ -35,7 +35,18 @@ export class PostBoxComponent implements OnInit {
   }
 
   editPressed(): void{
-    this.router.navigateByUrl(`post/${this.item.id}/edit`);
+    this.router.navigateByUrl(`post/${this.item.id}/edit`, { state: {
+      id: this.item.id,
+      author: this.item.author,
+      title: this.item.title,
+      content: this.item.content,
+      creationDate: this.item.creationDate,
+      imageUrlLarge: this.item.imageUrlLarge,
+      imageUrlSmall: this.item.imageUrlSmall,
+      youtubeUrl: this.item.youtubeUrl,
+      upVotes: 0,
+      downVotes: 0,
+    }});
   }
 
   removePressed(): void{

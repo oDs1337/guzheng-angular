@@ -14,22 +14,25 @@ export class EditRecordComponent implements OnInit {
 
   id: any;
   editForm!: FormGroup;
-  post: Post = {
-    author: ``,
-    title: ``,
-    content: ``,
-    creationDate: ``,
-    imageUrlLarge: ``,
-    youtubeUrl: ``,
-    upVotes: 0,
-    downVotes: 0,
-  }
+  // post: Post = {
+  //   author: ``,
+  //   title: ``,
+  //   content: ``,
+  //   creationDate: ``,
+  //   imageUrlLarge: ``,
+  //   youtubeUrl: ``,
+  //   upVotes: 0,
+  //   downVotes: 0,
+  // }
 
-  constructor(private router: Router,private api: BlogApiService ,private fb: FormBuilder, private route: ActivatedRoute, private store: Store<{ posts: Post[]}>) { }
+  post: Post = this.router.getCurrentNavigation()?.extras.state as Post;
+
+  constructor(private router: Router,private api: BlogApiService, private fb: FormBuilder, private route: ActivatedRoute, private store: Store<{ posts: Post[]}>) { }
 
   ngOnInit(): void {
     this.getUrlId();
-    this.getPost();
+    console.log(this.post);
+    //this.getPost();
 
     this.editForm = this.fb.group({
       author: [`${this.post?.author}`, [
@@ -64,26 +67,32 @@ export class EditRecordComponent implements OnInit {
   }
 
   get author(){
+    this.post.author = `${this.editForm.get("author")?.value}`;
     return this.editForm.get("author") as FormControl;
   }
 
   get title(){
+    this.post.title = `${this.editForm.get("title")?.value}`;
     return this.editForm.get("title") as FormControl;
   }
 
   get content(){
+    this.post.content = `${this.editForm.get("content")?.value}`;
     return this.editForm.get("content") as FormControl;
   }
 
   get imageUrlLarge(){
+    this.post.imageUrlLarge = `${this.editForm.get("imageUrlLarge")?.value}`;
     return this.editForm.get("imageUrlLarge") as FormControl;
   }
 
   get imageUrlSmall(){
+    this.post.imageUrlSmall = `${this.editForm.get("imageUrlSmall")?.value}`;
     return this.editForm.get("imageUrlSmall") as FormControl;
   }
 
   get youtubeUrl(){
+    this.post.youtubeUrl = `${this.editForm.get("youtubeUrl")?.value}`;
     return this.editForm.get("youtubeUrl") as FormControl;
   }
 
