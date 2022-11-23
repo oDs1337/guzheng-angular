@@ -49,7 +49,10 @@
 .post_optionalButtons{
   position: absolute;
   top: 60px;
-  right: 84px;
+  right: 67px;
   display: flex;
   flex-direction: column;
+}
+.margin-top10{
+  margin-top: 10px;
 }
