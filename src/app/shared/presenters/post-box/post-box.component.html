@@ -11,16 +11,16 @@
     </div>
     <div class="post_frame_footer frame-margin">
       <span>Author: {{item.author}}</span>
-      <div class="post_readmoreButton" [hidden]="readmoreButtonHidden">
+      <div class="post_readmoreButton" *ngIf="!readmoreButtonHidden">
         <button mat-raised-button color="warn" (click)="readMore(item.id)">read more</button>
      </div>
       <span>Date: {{dateFromTimestamp(item.creationDate)}}</span>
     </div>
   <div class="post_optionalButtons">
-    <div class="post_editButton" [hidden]="editButtonHidden">
+    <div class="post_editButton" *ngIf="!editButtonHidden">
       <button mat-raised-button color="primary" (click)="editPressed()">Edit</button>
     </div>
-    <div class="post_removeButton margin-top10" [hidden]="removeButtonHidden">
+    <div class="post_removeButton margin-top10" *ngIf="!removeButtonHidden">
       <button mat-raised-button color="warn" (click)="removePressed()">Remove</button>
     </div>
   </div>

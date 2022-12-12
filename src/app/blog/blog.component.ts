@@ -15,7 +15,7 @@ export class BlogComponent implements OnInit {
 
   posts: Post[] = [];
 
-  constructor(private api: BlogApiService, private sanitizer: DomSanitizer, private store: Store<{posts: Post[]}>, private router: Router) { }
+  constructor(private api: BlogApiService, private store: Store<{posts: Post[]}>, private router: Router) { }
 
   ngOnInit(): void {
     this.api.fetchPosts();
@@ -30,15 +30,6 @@ export class BlogComponent implements OnInit {
     this.store.select((state) => state.posts).subscribe((res) => {
       this.posts = res.slice().reverse();
     })
-  }
-
-  safeUrl(url: string){
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  }
-
-  dateFromTimestamp(timestamp: string): string{
-    let dateFormat = new Date(parseInt(timestamp));
-    return `${dateFormat.getDate()}.${dateFormat.getMonth()+1}.${dateFormat.getFullYear()}`
   }
 
   readMore(id: string){

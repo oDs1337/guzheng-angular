@@ -10,17 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'blog', pathMatch: 'full' },
   { path: 'blog', component: BlogComponent },
   { path: 'add-record', component: AddRecordComponent },
-  { path: 'post/:id/edit', component: EditRecordComponent, data: {
-    id: '',
-    author: '',
-    title: '',
-    content: '',
-    creationDate: '',
-    imageUrlLarge: '',
-    imageUrlSmall: '',
-    youtubeUrl: '',
-    upVotes: 0,
-    downVotes: 0} },
+  { path: 'post/:id/edit', component: EditRecordComponent },
   { path: 'post/:id', component: SinglePostComponent },
 ];
 

@@ -14,25 +14,22 @@ export class EditRecordComponent implements OnInit {
 
   id: any;
   editForm!: FormGroup;
-  // post: Post = {
-  //   author: ``,
-  //   title: ``,
-  //   content: ``,
-  //   creationDate: ``,
-  //   imageUrlLarge: ``,
-  //   youtubeUrl: ``,
-  //   upVotes: 0,
-  //   downVotes: 0,
-  // }
-
-  post: Post = this.router.getCurrentNavigation()?.extras.state as Post;
+  post: Post = {
+    author: ``,
+    title: ``,
+    content: ``,
+    creationDate: ``,
+    imageUrlLarge: ``,
+    youtubeUrl: ``,
+    upVotes: 0,
+    downVotes: 0,
+  }
 
   constructor(private router: Router,private api: BlogApiService, private fb: FormBuilder, private route: ActivatedRoute, private store: Store<{ posts: Post[]}>) { }
 
   ngOnInit(): void {
     this.getUrlId();
-    console.log(this.post);
-    //this.getPost();
+    this.getPost();
 
     this.editForm = this.fb.group({
       author: [`${this.post?.author}`, [
@@ -119,7 +116,7 @@ export class EditRecordComponent implements OnInit {
     this.store.select((state) => state.posts).subscribe((res) => {
       res.forEach((post) => {
         if(post.id === this.id){
-          this.post = post;
+          this.post = {...post};
         }
       })
     })
