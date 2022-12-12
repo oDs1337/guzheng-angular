@@ -68,7 +68,7 @@
 
     </form>
   </div>
-  <app-post-box
+  <app-post-box *ngIf="post"
     [item]="post"
     [editButtonHidden]="true"
     [removeButtonHidden]="false"
