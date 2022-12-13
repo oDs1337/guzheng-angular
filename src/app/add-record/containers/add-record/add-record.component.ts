@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { BlogApiService } from './../service/blog-api.service';
+import { BlogApiService } from 'src/app/service/blog-api.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ControlContainer } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';

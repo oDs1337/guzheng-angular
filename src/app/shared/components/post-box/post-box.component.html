@@ -14,7 +14,7 @@
       <div class="post_readmoreButton" *ngIf="!readmoreButtonHidden">
         <button mat-raised-button color="warn" (click)="readMore(item.id)">read more</button>
      </div>
-      <span>Date: {{item.creationDate | dateTransformation}}</span>
+      <span>Date: {{item.creationDate | date}}</span>
     </div>
   <div class="post_optionalButtons">
     <div class="post_editButton" *ngIf="!editButtonHidden">
