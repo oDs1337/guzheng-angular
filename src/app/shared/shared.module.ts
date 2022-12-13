@@ -1,16 +1,18 @@
 import { MatButtonModule } from '@angular/material/button';
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostBoxComponent } from './presenters/post-box/post-box.component';
+import { DateTransformationPipe } from './pipes/date-transformation.pipe';
 
 
 @NgModule({
   declarations: [
-    PostBoxComponent
+    PostBoxComponent,
+    DateTransformationPipe,
   ],
   imports: [
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   exports: [
     PostBoxComponent
