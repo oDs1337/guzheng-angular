@@ -18,14 +18,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { SinglePostComponent } from './single-post/single-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
     BlogComponent,
-    SinglePostComponent,
   ],
   imports: [
     BrowserModule,
