@@ -1,5 +1,6 @@
-import { BlogApiService } from './../service/blog-api.service';
-import { Post } from '../post';
+
+import { BlogApiService } from 'src/app/service/blog-api.service';
+import { Post } from 'src/app/post';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

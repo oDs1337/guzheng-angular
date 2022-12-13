@@ -1,4 +1,4 @@
-import { BlogApiService } from './../../../service/blog-api.service';
+import { BlogApiService } from '../../../service/blog-api.service';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';

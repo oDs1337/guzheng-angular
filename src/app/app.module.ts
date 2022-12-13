@@ -14,12 +14,10 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { BlogComponent } from './blog/blog.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AddRecordComponent } from './add-record/add-record.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { EditRecordComponent } from './edit-record/edit-record.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 
 @NgModule({
@@ -27,8 +25,6 @@ import { SinglePostComponent } from './single-post/single-post.component';
     AppComponent,
     NavigationBarComponent,
     BlogComponent,
-    AddRecordComponent,
-    EditRecordComponent,
     SinglePostComponent,
   ],
   imports: [
