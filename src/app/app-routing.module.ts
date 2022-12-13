@@ -1,9 +1,6 @@
-import { EditRecordModule } from './edit-record/edit-record.module';
-import { Post } from 'src/app/post';
 import { BlogComponent } from './blog/blog.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SinglePostComponent } from './single-post/single-post.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'blog', pathMatch: 'full' },
@@ -12,7 +9,8 @@ const routes: Routes = [
    () => import('./add-record/add-record.module').then(m => m.AddRecordModule)},
   { path: 'post/:id/edit', loadChildren:
    () => import('./edit-record/edit-record.module').then(m => m.EditRecordModule) },
-  { path: 'post/:id', component: SinglePostComponent },
+  { path: 'post/:id', loadChildren:
+   () => import('./single-post/single-post.module').then(m => m.SinglePostModule) },
 ];
 
 @NgModule({
